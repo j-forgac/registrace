@@ -1,0 +1,20 @@
+<ul *ngIf="usernameEl.errors != null && usernameEl.touched">
+  <li *ngIf="usernameEl.errors.required">
+    POLE JE POVINNÉ
+  </li>
+  <li *ngIf="usernameEl.errors.minlength.actualLength < 3">
+    Jméno je krátké
+  </li>
+</ul>
+<form (ngSubmit)="print(name)" #form = "ngForm">
+  <input type="text" [(ngModel)]="name" name="username" required minlength="3" maxlength="5" #usernameEl="ngModel">
+  <button [disabled]="form.invalid">HELLO</button>
+</form>
+
+<script>
+  function alertSuccess() {
+    alert("success!");
+  }
+</script>
+
+<router-outlet></router-outlet>
