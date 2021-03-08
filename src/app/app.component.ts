@@ -28,7 +28,10 @@ export class AppComponent {
     console.log(aaa);
   }
 
-  postRequest(text: string): void{
+  postRequest(): void{
+    this.post.id = this.pocetParu;
+    this.pocetParu++;
+
     this.http.post<Post>('https://webhook.site/4ddb7fd6-3032-4162-b9a7-f0e9f922106d', this.post)
       .subscribe(p => console.log(p) );
   }
