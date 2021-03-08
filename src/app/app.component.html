@@ -7,8 +7,8 @@
   </li>
 </ul>
 <form (ngSubmit)="print(name)" #form = "ngForm">
-  <input type="text" [(ngModel)]="name" name="username" required minlength="3" maxlength="5" #usernameEl="ngModel">
-  <button [disabled]="form.invalid">HELLO</button>
+  <input type="text" [(ngModel)]="post.title" name="username" required minlength="3" maxlength="5" #usernameEl="ngModel">
+  <button [disabled]="form.invalid" (click) = "postRequest('test-1')">HELLO</button>
 </form>
 
 <script>

@@ -14,18 +14,23 @@ interface Post {
 })
 export class AppComponent {
   title = 'registrace';
+  http: HttpClient;
 
   name = '';
-  post: Post | undefined;
+  post: Post = {id: 2, title: 'howdy'};
   pocetParu = 0;
 
   constructor(httpClient: HttpClient) {
-    httpClient.get<Post>('https://webhook.site/4ddb7fd6-3032-4162-b9a7-f0e9f922106d')
-      .subscribe(p => this.post = p );
+   this.http = httpClient;
   }
 
   print(aaa: string): void {
     console.log(aaa);
+  }
+
+  postRequest(text: string): void{
+    this.http.post<Post>('https://webhook.site/4ddb7fd6-3032-4162-b9a7-f0e9f922106d', this.post)
+      .subscribe(p => console.log(p) );
   }
 }
 
