@@ -7,10 +7,14 @@ import {FormsModule} from '@angular/forms';
 
 
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { MinDirective } from './min.directive';
+import { MaxDirective } from './max.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MinDirective,
+    MaxDirective
   ],
   imports: [
     BrowserModule,

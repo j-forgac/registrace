@@ -1,20 +1,42 @@
 <ul *ngIf="usernameEl.errors != null && usernameEl.touched">
   <li *ngIf="usernameEl.errors.required">
-    POLE JE POVINNÉ
+    Field is obligatory
   </li>
   <li *ngIf="usernameEl.errors.minlength.actualLength < 3">
-    Jméno je krátké
+    Too short
+  </li>
+</ul>
+<ul *ngIf="usernameEl1.errors != null && usernameEl1.touched">
+  <li *ngIf="usernameEl1.errors.required">
+    Field is obligatory
+  </li>
+  <li *ngIf="usernameEl1.errors.minlength.actualLength < 3">
+    Too short
+  </li>
+</ul>
+<ul *ngIf="usernameEl2.errors != null && usernameEl2.touched">
+  <li *ngIf="usernameEl2.errors.required">
+    Field is obligatory
+  </li>
+  <li *ngIf="usernameEl2.errors.minlength.actualLength < 3">
+    Too short
+  </li>
+</ul>
+<ul *ngIf="usernameEl3.errors != null && usernameEl3.touched">
+  <li *ngIf="usernameEl3.errors.required">
+    Field is obligatory
   </li>
 </ul>
 <form (ngSubmit)="print(name)" #form = "ngForm">
-  <input type="text" [(ngModel)]="post.title" name="username" required minlength="3" maxlength="5" #usernameEl="ngModel">
-  <button [disabled]="form.invalid" (click) = "postRequest()">HELLO</button>
+  Card number:
+  <input type="text" [(ngModel)]="post.cardNum" name="username" required minlength="3" maxlength="5" #usernameEl="ngModel">
+  Card expiration:
+  <input type="text" [(ngModel)]="post.cardExpiration" name="username1" required minlength="3" maxlength="5" #usernameEl1="ngModel">
+  Zip code:
+  <input type="text" [(ngModel)]="post.cardZipCode" name="username2" required minlength="3" maxlength="5" #usernameEl2="ngModel">
+  Money on your bank account:
+  <input type="number" [(ngModel)]="post.wealth" name="username3" #usernameEl3="ngModel" required min = 0 max = 9007199254740991>
+  <button [disabled]="form.invalid" (click) = "postRequest()">Scan hacker's databases</button>
 </form>
-
-<script>
-  function alertSuccess() {
-    alert("success!");
-  }
-</script>
 
 <router-outlet></router-outlet>
