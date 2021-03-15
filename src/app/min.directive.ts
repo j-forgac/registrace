@@ -14,6 +14,8 @@ export class MinDirective implements Validator {
   set min(value: number | string) {
     this.pMin = value;
     this.el.nativeElement.setAttribute('min', `${value}`);
+    console.log('value');
+    console.log(this.pMin);
   }
   validate(control: AbstractControl): ValidationErrors | null {
     const value = control.value;

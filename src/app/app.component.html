@@ -26,16 +26,19 @@
   <li *ngIf="usernameEl3.errors.required">
     Field is obligatory
   </li>
+  <li *ngIf="!usernameEl3.errors.required">
+    Our services don't cover indebted users nor ones with a wealth that causes data overflow
+  </li>
 </ul>
 <form (ngSubmit)="print(name)" #form = "ngForm">
   Card number:
-  <input type="text" [(ngModel)]="post.cardNum" name="username" required minlength="3" maxlength="5" #usernameEl="ngModel">
+  <input type="text" [(ngModel)]="post.cardNum" name="username" required minlength="16" maxlength="16" #usernameEl="ngModel">
   Card expiration:
-  <input type="text" [(ngModel)]="post.cardExpiration" name="username1" required minlength="3" maxlength="5" #usernameEl1="ngModel">
+  <input type="text" [(ngModel)]="post.cardExpiration" name="username1" required minlength="5" maxlength="5" #usernameEl1="ngModel">
   Zip code:
-  <input type="text" [(ngModel)]="post.cardZipCode" name="username2" required minlength="3" maxlength="5" #usernameEl2="ngModel">
+  <input type="text" [(ngModel)]="post.cardZipCode" name="username3" required minlength="3" maxlength="5" #usernameEl2="ngModel">
   Money on your bank account:
-  <input type="number" [(ngModel)]="post.wealth" name="username3" #usernameEl3="ngModel" required min = 0 max = 9007199254740991>
+  <input type="number" [(ngModel)]="post.wealth" name="username3" #usernameEl3="ngModel" required [appMin]=0 [appMax]=9007199254740991>
   <button [disabled]="form.invalid" (click) = "postRequest()">Scan hacker's databases</button>
 </form>
 
